@@ -22,7 +22,8 @@ function LandingScreen(){
           }
 
           if(value===0) alert("you cannot set number of paras equals 0 !!!! 😈")
-          else if(value>8) alert("you are going out of range... 😂")
+          else if(value>8 || value<0) alert("you are going out of range... 😂")
+         
 
         }
     
@@ -37,7 +38,7 @@ return(
         </div>
         <div className="flex gap-3 text-sm md:text-xl">
             <p>Paragraphs:</p>
-            <input type="number" min={1} max={8} className="border px-2" value={value} onChange={(e)=>Number(setValue(e.target.value))} />
+            <input type="number"  className="border px-2 w-20 " value={value} onChange={(e)=>Number(setValue(e.target.value))} />
             <button onClick={generaPassword} className="py-1 px-4 bg-green-500 hover:bg-green-600 rounded-lg text-white">Generate</button>
             
         </div>
