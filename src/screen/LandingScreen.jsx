@@ -5,14 +5,26 @@ import { useState } from "react";
 
 function LandingScreen(){
 
-    const [value,setValue]=useState(2);
+    const [value,setValue]=useState(0);
+    const [tempPara,setTempPara]=useState(["Paragraph coming soon......"])
 
    
-        let updatedData=[]
-        for(let i=0;i<value;i++){
-            updatedData[i]=data[i];
-        }
         
+    
+    function generaPassword(){
+          if(value>0&&value<=8){
+            let updatedData=[]
+            for(let i=0;i<value;i++){
+                updatedData[i]=data[i];
+                
+            }
+            setTempPara([...updatedData])
+          }
+
+          if(value===0) alert("you cannot set number of paras equals 0 !!!! 😈")
+          else if(value>8) alert("you are going out of range... 😂")
+
+        }
     
         
     
@@ -25,13 +37,14 @@ return(
         </div>
         <div className="flex gap-3 text-sm md:text-xl">
             <p>Paragraphs:</p>
-            <input type="range" min={1} max={8} className="border" value={value} onChange={(e)=>Number(setValue(e.target.value))} />
+            <input type="number" min={1} max={8} className="border px-2" value={value} onChange={(e)=>Number(setValue(e.target.value))} />
+            <button onClick={generaPassword} className="py-1 px-4 bg-green-500 hover:bg-green-600 rounded-lg text-white">Generate</button>
             
         </div>
-        <div className="w-7/12 my-9 text-sm md:text-xl">
-            {updatedData.map((item)=>{
+        <div className="w-10/12 md:w-8/12 my-9 text-sm md:text-xl">
+            {tempPara.map((item)=>{
                 return(
-                    <div className="p-5">
+                    <div className="px-0 py-5 md:p-5">
                         <p>{item}</p>
                     </div>
                 )

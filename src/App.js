@@ -4,7 +4,7 @@ import LandingScreen from "./screen/LandingScreen";
 
 function App() {
   return (
-    <div style={{ backgroundColor: "#ffe6d6" }}>
+    <div style={{ backgroundColor: "#ffe6d6", minHeight: "100vh" }}>
       <LandingScreen></LandingScreen>
     </div>
   );
